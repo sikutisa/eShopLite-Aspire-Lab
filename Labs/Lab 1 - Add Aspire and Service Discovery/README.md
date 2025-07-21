@@ -80,6 +80,7 @@ Let's add in .NET Aspire to the eShopLite application with an eye towards enabli
 1. Add `eShopLit.ServiceDefaults` to existing `Products` and `Store` app as a reference.
 
     ```bash
+    # dotnet new install Aspire.ProjectTemplates
     dotnet add ./Products reference ./eShopLite.ServiceDefaults
     dotnet add ./Store reference ./eShopLite.ServiceDefaults
     ```
@@ -239,6 +240,8 @@ Service discovery is a way for developers to use logical names instead of physic
 
     ```bash
     dotnet watch run --project ./eShopLite.AppHost
+    # API 쪽에서 인증 관련 이슈가 발생할 경우
+    # dotnet dev-certs https --trust
     ```
 
 1. The Aspire dashboard appears.
