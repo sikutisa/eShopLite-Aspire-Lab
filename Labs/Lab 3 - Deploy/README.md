@@ -47,6 +47,13 @@ You'll need to add the `WithExternalHttpEndpoints` method to the store project t
 1. Open a terminal and run the following command to login to Azure:
 
     ```bash
+    # Azure Developer CLI 설치
+    # Window
+    # winget install microsoft.azd
+    # MAC
+    # brew tap azure/azd && brew install azd
+    # 설치 확인
+    # azd version - 안 잡히면 IDE 닫았다 다시 열어보기
     azd auth login
     ```
 
