@@ -6,15 +6,15 @@ var productsdb = builder.AddPostgres("pg")
                             .WithPgAdmin()
                             .AddDatabase("productsdb");
 
-var products = builder.AddProject<Projects.Products>("products");
+var products = builder.AddProject<Projects.Products>("products")
+                     .WithReference(productsdb)
+                     .WaitFor(productsdb);
 
 builder.AddProject<Projects.Store>("store")
        .WithExternalHttpEndpoints()
        .WithReference(products)
        .WithReference(redis)
-       .WithReference(productsdb)
        .WaitFor(products)
-       .WaitFor(redis)
-       .WaitFor(productsdb);
+       .WaitFor(redis);
  
 builder.Build().Run();
